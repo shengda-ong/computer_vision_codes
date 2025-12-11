@@ -22,7 +22,7 @@ class Resize:
     def __init__(self,size):
         self.size = size # (new_h, new_w)
 
-    def __call__(self):
+    def __call__(self,img):
         img = img.unsqueeze(0) # (1, C, H, W)
         img = F.interpolate(img, size=self.size, mode='bilinear', align_corners=False)
         img = img.squeeze(0) # (C, H, W)
