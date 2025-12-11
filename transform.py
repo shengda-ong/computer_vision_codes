@@ -14,7 +14,7 @@ class RandomHorizontalFlip:
         self.p = p
 
     def __call__(self,img):
-        if torch.rand(1).item.item() < self.p:
+        if torch.rand(1).item < self.p:
             img = torch.flip(img,dims=[2])
         return img
     
