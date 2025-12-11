@@ -25,7 +25,7 @@ train_dataset = ImageClassifcationDataset(
 )
 
 val_dataset = ImageClassifcationDataset(
-    csv_file=train_csv,
+    csv_file=val_csv,
     root_dir=root_dir,
     transform=val_transform
 )
