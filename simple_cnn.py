@@ -5,17 +5,18 @@ class SimpleCNN(nn.Module):
     def __init__(self, num_classes):
         super(SimpleCNN,self).__init__()
         self.features = nn.Sequential(
+            # (c,h,w) =(3,244,244)
             nn.Conv2d(3,16,kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.MaxPool2d(kernel_size=2, stride=2), # out 122 x 122 x 16
 
             nn.Conv2d(16,32,kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.MaxPool2d(kernel_size=2, stride=2), # out 61 x 61 x 32
 
             nn.Conv2d(32,64,kernel_size=3,padding=1),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=2, stride=2)
+            nn.MaxPool2d(kernel_size=2, stride=2) # out 30 x 30 x 64
         )
 
         self.classifier = nn.Sequential(
